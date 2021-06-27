@@ -52,8 +52,9 @@ fn fzf_wrapper(debug: bool, depth: u32) {
         .arg("--preview")
         .arg("opener {}")
         .current_dir(cwd)
+        .stdin(Stdio::inherit())
         .stdout(Stdio::piped())
-        .spawn()
+        .status()
         .expect("Well that didn't work.");
 }
 
